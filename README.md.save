@@ -1,0 +1,11 @@
+This is a small project created as an exercise in machine learning.  This
+program generates arbitrary prices of items and the actual price of them.  
+
+The machine learning algorithm takes the total price (the sum of the number of 
+items multiplied by their respective price) and the number of items and 
+attempts to find the individual price of each item via back propagation.
+
+An example of an application of this would be purchasing a few items from a
+store and not keeping the receipt.  The total price paid would either be known
+since
+it may show up on a debit/credit card statement or 
