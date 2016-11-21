@@ -5,7 +5,7 @@ import numpy as np
 def main():
     # These are the amounts of items bought. Algorithm uses these
     # amounts = np.array([random.randint(0,10), random.randint(0,10), random.randint(0,100)])
-    amounts = [random.randint(1,10), random.randint(1,10), random.randint(1,100)]
+    amounts = [random.randint(1,10), random.randint(1,10), random.randint(1,10)]
 
     # These are the actual prices of the items. Algorithm does not use these
     # prices = np.array([random.randint(0,100),random.randint(0,100),random.randint(0,100)])
@@ -14,10 +14,9 @@ def main():
     # This is the ground truth, algorithm uses this
     totalTruePrice = 0
 
-    learningRate = 1
+    learningRate = 0.005
     for i in range (0,3):
         totalTruePrice += amounts[i]*prices[i]
-    totalTruePrice = (totalTruePrice)
 
     # Begin by initially randomizing weights and learned prices
     weights = np.array([random.random(),random.random(),random.random()])
@@ -35,7 +34,6 @@ def main():
             learnedPrices[i] = weights[i]*amounts[i]
             totalLearnedPrice += learnedPrices[i]
 
-        totalLearnedPrice = (totalLearnedPrice)
         # totalLearnedPrice = sigmoid(totalLearnedPrice)
 
         # Compute the error given a mean squared error function
@@ -46,10 +44,11 @@ def main():
 
         for i in xrange (0,3):
             # The derivative of the error with respect to the 'i'th weight
-            dErrdWeight[i] = amounts[i] * dErrdOutput
+            dErrdWeight[i] = (amounts[i] * dErrdOutput)
 
             # weights[i] -= math.tanh(learningRate*dErrdWeight[i])
-            weights[i] -= (learningRate*dErrdWeight[i])/10000
+            # weights[i] -= sigmoid(learningRate*dErrdWeight[i])
+            weights[i] -= (learningRate*dErrdWeight[i])
 
     print "------------------------------------------------"
     print "The quantities of items purchased are:"
@@ -61,6 +60,6 @@ def main():
     print "------------------------------------------------"
 
 def sigmoid(x):
-    return 1/(1*math.exp(-x))
+    return 1/(1+math.exp(-x))
 
 main()
