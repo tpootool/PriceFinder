@@ -1,4 +1,11 @@
 ------------------------------------------------------------------------------
+HOW TO RUN THE PROJECT
+------------------------------------------------------------------------------
+
+- Must have numpy library installed
+- Type "python priceFinder.py" in the command line from the root directory
+
+------------------------------------------------------------------------------
 WHAT IS THE PURPOSE OF THIS PROJECT
 ------------------------------------------------------------------------------
 
@@ -35,3 +42,4 @@ HOW ACCURATE IS THIS PROJECT
 Currently this project does not return the actual values of the prices but
 instead finds a reasonable estimate of what they could be with the same total
 price as the actual prices and amounts.
+
